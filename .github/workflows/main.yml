@@ -12,17 +12,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      
-    - name: Count commits
-      run: |
-        COMMIT_COUNT=$(git rev-list --count HEAD)
         
         
     - name: Create new branch
-      if: ${{ env.COMMIT_COUNT == 5 }}
       run: |
-        BRANCH_NAME=$(date +"version-%Y.%m.%d")
-        git branch $BRANCH_NAME
-        git checkout $BRANCH_NAME
-        git push -u origin $BRANCH_NAME
-        echo "Commit count: $COMMIT_COUNT"
+        git checkout -b v.0.0.0
+        git push origin -u v.0.0.0
