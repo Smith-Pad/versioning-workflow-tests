@@ -16,14 +16,7 @@ jobs:
     - name: Create new branch
       run: |
         BRANCH_NAME=$(date +"%Y-%m-%d")
-        git fetch
+        git pull
         git branch $BRANCH_NAME
         git checkout $BRANCH_NAME
         git push -u origin $BRANCH_NAME
-
-    - name: Update Changelog
-      run: |
-        echo "<h1> Changelog</h1>" >> CHANGELOG
-        echo "- $(date +"%Y-%m-%d") - $(git log --format=%B -n 1)" >> CHANGELOG
-        echo "## Changelog" >> CHANGELOG.md
-        echo "- $(date +"%Y-%m-%d") - $(git log --format=%B -n 1)" >> CHANGELOG.md
