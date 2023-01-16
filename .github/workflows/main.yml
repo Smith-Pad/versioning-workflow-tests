@@ -16,7 +16,7 @@ jobs:
     - name: Create new branch
       run: |
         BRANCH_NAME=$(date +"%Y-%m-%d")
-        git pull
+        git pull ...
         git branch $BRANCH_NAME
         git checkout $BRANCH_NAME
         git push -u origin $BRANCH_NAME
