@@ -17,5 +17,6 @@ jobs:
     - name: Create new branch
       run: |
         current_date=$(date +"%Y-%m-%d")
+        git pull
         git checkout -b v.0.0.0
         git push origin -u v.0.0.0
