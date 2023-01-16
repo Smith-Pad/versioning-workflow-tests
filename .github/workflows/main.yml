@@ -12,11 +12,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      
+    - name: Count commits
+      run: |
+        COMMIT_COUNT=$(git rev-list --count HEAD)
+        echo "Commit count: $COMMIT_COUNT"
 
     - name: Create new branch
       run: |
-        BRANCH_NAME=$(date +"%Y-%m-%d")
-        git pull
-        git branch $BRANCH_NAME
-        git checkout -b $BRANCH_NAME
-        git push -u origin $BRANCH_NAME
+        COMMIT_COUNT=$(git rev-list --count HEAD)
+        echo "Commit count: $COMMIT_COUNT"
+        
+        
+        
+        COMMIT_COUNT=$(git rev-list --count HEAD)
+        echo "Commit count: $COMMIT_COUNT"
