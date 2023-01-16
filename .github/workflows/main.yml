@@ -24,6 +24,7 @@ jobs:
     - name: Update existing branch 
       if: ${{env.COMMIT_COUNT < 5}} 
       run: |
+         git fetch
          CURRENT_DATE=$(date +"%Y.%m.%d")
          BRANCH_NAME=$(git branch | grep "version-$CURRENT_DATE")
          if [[-n $BRANCH_NAME]]; then 
