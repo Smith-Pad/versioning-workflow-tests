@@ -17,13 +17,3 @@ jobs:
       run: |
         COMMIT_COUNT=$(git rev-list --count HEAD)
         echo "Commit count: $COMMIT_COUNT"
-
-    - name: Create new branch
-      run: |
-        COMMIT_COUNT=$(git rev-list --count HEAD)
-        echo "Commit count: $COMMIT_COUNT"
-        
-        
-        
-        COMMIT_COUNT=$(git rev-list --count HEAD)
-        echo "Commit count: $COMMIT_COUNT"
