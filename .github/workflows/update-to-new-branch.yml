@@ -36,3 +36,4 @@ jobs:
           cd versioning-workflow-tests
           DATE=$(date +"%Y.%-m.%-d")
           echo $DATE
+          git branch $DATE
