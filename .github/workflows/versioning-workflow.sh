@@ -11,6 +11,10 @@
 current_date=$(date +"%Y-%m-%d")
 echo $current_date
 
+git checkout main
+
+git pull origin main
+
 git branch $current_date 
 
 git checkout $current_date
