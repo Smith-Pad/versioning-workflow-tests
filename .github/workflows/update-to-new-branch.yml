@@ -37,6 +37,5 @@ jobs:
           DATE=$(date +"%Y.%-m.%-d")
           echo $DATE
           git branch $DATE
-          git checkout $DATE
           git merge main
           git push -u origin $DATE
