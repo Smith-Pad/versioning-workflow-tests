@@ -33,3 +33,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           git clone https://github.com/Smith-Pad/versioning-workflow-tests
+          cd versioning-workflow-tests
+          DATE='date +%Y.%m, %d'        
+          echo $DATE
