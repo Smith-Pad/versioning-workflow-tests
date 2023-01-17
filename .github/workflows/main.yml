@@ -15,5 +15,4 @@ jobs:
         
         
     - name: Create new branch
-      # run: current_date=$(date +"%Y-%m-%d") && git branch -d $current_date && git push origin --delete $current_date
-      run: sh versioning-workflow.sh
+      run: echo "hello world"
