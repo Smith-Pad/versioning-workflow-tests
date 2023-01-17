@@ -15,5 +15,4 @@ jobs:
         
         
     - name: Create new branch
-      run: |
-    - bash versioning-workflow.sh 
+      run: bash versioning-workflow.sh 
