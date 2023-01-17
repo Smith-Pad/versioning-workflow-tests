@@ -20,19 +20,13 @@ jobs:
         git pull
         git checkout -b v.0.0.0
         git push origin -u v.0.0.0
-
-    - name: Update existing branch 
-      if: ${{env.COMMIT_COUNT < 5}} 
-      run: |
-         git fetch
-         CURRENT_DATE=$(date +"%Y.%m.%d")
-         BRANCH_NAME=$(git branch | grep "version-$CURRENT_DATE")
-         if [[-n $BRANCH_NAME]]; then 
-                git checkout $BRANCH_NAME
-                git push 
-         else
-                echo "No Existing Branch for today, creating a new one"
-                git branch $BRANCH_NAME
-                git checkout $BRANCH_NAME
-                git push -u origin $BRANCH_NAME
-                fi
+        BRANCH_NAME=$(git branch | grep "version-$current_date")
+        if [[-n $BRANCH_NAME]]; then 
+               git checkout $BRANCH_NAME
+               git push 
+        else
+               echo "No Existing Branch for today, creating a new one"
+               git branch $BRANCH_NAME
+               git checkout $BRANCH_NAME
+               git push -u origin $BRANCH_NAME
+               fi
