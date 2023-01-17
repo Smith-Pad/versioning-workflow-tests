@@ -18,15 +18,5 @@ jobs:
       run: |
         current_date=$(date +"%Y-%m-%d")
         git pull
-        git checkout -b v.0.0.0
-        git push origin -u v.0.0.0
-        BRANCH_NAME=$(git branch | grep "version-$current_date")
-        if [[-n $BRANCH_NAME]]; then 
-               git checkout $BRANCH_NAME
-               git push 
-        else
-               echo "No Existing Branch for today, creating a new one"
-               git branch $BRANCH_NAME
-               git checkout $BRANCH_NAME
-               git push -u origin $BRANCH_NAME
-               fi
+        git checkout -b $current_date
+        git push origin -u $current_date
