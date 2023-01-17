@@ -37,3 +37,4 @@ jobs:
           DATE=$(date +"%Y.%-m.%-d")
           echo $DATE
           git branch $DATE
+          
