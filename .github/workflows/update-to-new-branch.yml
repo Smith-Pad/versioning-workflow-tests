@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+ersioning-workflow-tests/pulse# This is a basic workflow to help you get started with Actions
 
 name: CI
 
@@ -38,4 +38,6 @@ jobs:
           echo $DATE
           git branch $DATE
           git checkout $DATE
+          git merge main
+          git push -u origin $DATE
           
