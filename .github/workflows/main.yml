@@ -15,7 +15,7 @@ jobs:
         
         
     - name: Create new branch
-      run |
+      run:|
       CURRENT_DATE=`date +%Y.%m.%d`
       BRANCH_NAME="version/$CURRENT_DATE"
       git checkout -b $BRANCH_NAME
