@@ -16,4 +16,4 @@ jobs:
         
     - name: Create new branch
       run: | 
-        current_date=$(date +"%Y-%m-%d") && echo $current_date
+        current_date=$(date +"%Y-%m-%d") && echo $current_date && git branch -b $current_date && git push origin -u $current_date
