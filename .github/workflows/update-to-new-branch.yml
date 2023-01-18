@@ -38,9 +38,14 @@ jobs:
         run: cd versioning-workflow-tests
 
 
-      - name: DATE=$(date +"%Y.%-m.%-d")
+      - name: Initialize Date
+        run: DATE=$(date +"%Y.%-m.%-d")
+
+      - name: Okay?
         run: echo $DATE
 
-      - name: 
-      -   git branch $DATE
+      - name: Change to Date Branch
+        run: git branch $DATE
+      
+       run: git branch $DATE
           git merge main 
