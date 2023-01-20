@@ -1,6 +1,4 @@
 name: "Auto-Release"
-# Documentation found here:
-# https://github.com/marketplace/actions/automatic-releases
 
 on:
   push:
@@ -13,16 +11,30 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      # ...
       - name: "Build & test"
         run: |
           echo "done!"
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          title: "Changes:"
-          files: |
-            LICENSE.txt
-            *.jar
+      - name: "Check last release date"
+        run: |
+          # Store the date of the last release in a variable
+          last_release_date=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r '.created_at' | cut -d'T' -f1)
+          
+          # Store the current date in a variable
+          current_date=$(date +%Y-%m-%d)
+          
+          # Compare the dates, and if they are not the same, create a new release
+          if [ "$last_release_date" != "$current_date" ]; then
+            echo "Creating new release"
+            # Use the marvinpinto/action-automatic-releases action to create a new release
+            - uses: "marvinpinto/action-automatic-releases@latest"
+              with:
+                repo_token: "${{ secrets.GITHUB_TOKEN }}"
+                automatic_release_tag: "latest"
+                prerelease: false
+                title: "Changes:"
+                files: |
+                  LICENSE.txt
+                  *.jar
+          else
+            echo "Commits will be added to the existing release"
+          fi
