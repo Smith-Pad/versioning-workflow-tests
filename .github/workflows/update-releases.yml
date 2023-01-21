@@ -34,8 +34,8 @@ jobs:
         run: |
           git clone https://github.com/Smith-Pad/versioning-workflow-tests
           cd versioning-workflow-tests
-          mv .github/workflow/auto-releases.yml .github/workflow/auto-releases
-          git rm -r .github/workflow/auto-releases.yml
-          git add .github/workflow/auto-releases
+          mv .github/workflow/auto-releases .github/workflow/auto-releases.yml
+          git rm -r .github/workflow/auto-releases
+          git add .github/workflow/auto-releases.yml
           git commit -m "..."
           git push origin main
