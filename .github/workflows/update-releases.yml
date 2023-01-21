@@ -1,8 +1,8 @@
 # This is a basic workflow to help you get started with Actions
+# Controls when the workflow will run
 
 name: CI
 
-# Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
@@ -33,3 +33,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           git clone https://github.com/Smith-Pad/versioning-workflow-tests
+          cd versioning-workflow-tests
+          mv .github/workflow/auto-releases.yml .github/workflow/auto-releases
+          git rm -r .github/workflow/auto-releases.yml
+          git add .github/workflow/auto-releases
+          git commit -m "..."
+          git push origin main
